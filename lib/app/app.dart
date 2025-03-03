@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projects/app/app_colors.dart';
+import 'package:projects/app/app_theme_data.dart';
 import 'package:projects/features/auth/ui/screens/splash_screen.dart';
 
 class CraftyBay extends StatelessWidget {
@@ -9,9 +9,9 @@ class CraftyBay extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       initialRoute: '/',
-      theme: ThemeData(
-        colorSchemeSeed: AppColors.themeColor
-      ),
+      theme: AppThemeData.lightThemeData,
+      darkTheme: AppThemeData.darkThemeData,
+      themeMode: ThemeMode.light,
       routes: {
         '/' : (context) => SplashScreen(),
       },

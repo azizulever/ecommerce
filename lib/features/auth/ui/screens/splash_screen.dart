@@ -15,14 +15,14 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.all(24),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Spacer(),
-              SvgPicture.asset(AssetsPath.appLogoSvg, width: 88),
-              Spacer(),
-              CircularProgressIndicator(),
+              const Spacer(),
+              SvgPicture.asset(AssetsPath.appLogoSvg, width: 100),
+              const Spacer(),
+              const CircularProgressIndicator(),
             ],
           ),
         ),
