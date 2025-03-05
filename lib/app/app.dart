@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projects/app/app_theme_data.dart';
+import 'package:projects/features/auth/ui/screens/email_verification_screen.dart';
 import 'package:projects/features/auth/ui/screens/splash_screen.dart';
 
 class CraftyBay extends StatelessWidget {
@@ -13,7 +14,9 @@ class CraftyBay extends StatelessWidget {
       darkTheme: AppThemeData.darkThemeData,
       themeMode: ThemeMode.light,
       routes: {
-        '/' : (context) => SplashScreen(),
+        '/': (context) => SplashScreen(),
+        EmailVerificationScreen.name:
+            (context) => const EmailVerificationScreen(),
       },
     );
   }
