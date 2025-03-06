@@ -30,7 +30,7 @@ class _SplashScreenState extends State<SplashScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Spacer(),
+              const Spacer(),
               AppLogoWidget(),
               const Spacer(),
               const CircularProgressIndicator(),
