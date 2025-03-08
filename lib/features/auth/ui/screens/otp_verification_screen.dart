@@ -1,9 +1,9 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:projects/app/app_colors.dart';
+import 'package:projects/app/app_constants.dart';
 import 'package:projects/features/auth/ui/widgets/app_logo_widget.dart';
 
 class OtpVerificationScreen extends StatefulWidget {
@@ -18,7 +18,9 @@ class OtpVerificationScreen extends StatefulWidget {
 class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
   final TextEditingController _otpTEController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  final RxInt _remainingTime = 120.obs;
+  final RxInt _remainingTime = AppConstants.resendOtpTimeOutInSecs.obs;
+  late Timer timer;
+  final RxBool _enableResendCodeButton = false.obs;
 
   @override
   void initState() {
@@ -27,8 +29,14 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
   }
 
   void _startRespondCodeTime() {
-    Timer.periodic(const Duration(seconds: 1), (t) {
-      _remainingTime.value = t.tick;
+    _enableResendCodeButton.value = false;
+    _remainingTime.value = AppConstants.resendOtpTimeOutInSecs;
+    timer = Timer.periodic(const Duration(seconds: 1), (t) {
+      _remainingTime.value--;
+      if (_remainingTime.value == 0) {
+        t.cancel();
+        _enableResendCodeButton.value = true;
+      }
     });
   }
 
@@ -80,19 +88,34 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
               ),
               const SizedBox(height: 12),
               // TODO: enable button when 120s is done and invisible the text
-              RichText(
-                text: TextSpan(
-                  text: 'This code will be expired in ',
-                  style: TextStyle(color: Colors.grey),
-                  children: [
-                    TextSpan(
-                      text: '120s',
-                      style: TextStyle(color: AppColors.themeColor),
+              Obx(
+                () => Visibility(
+                  visible: !_enableResendCodeButton.value,
+                  child: RichText(
+                    text: TextSpan(
+                      text: 'This code will be expired in ',
+                      style: TextStyle(color: Colors.grey),
+                      children: [
+                        TextSpan(
+                          text: '${_remainingTime}s',
+                          style: TextStyle(color: AppColors.themeColor),
+                        ),
+                      ],
                     ),
-                  ],
+                  ),
                 ),
               ),
-              TextButton(onPressed: () {}, child: const Text("Resend Code")),
+              Obx(
+                () => Visibility(
+                  visible: _enableResendCodeButton.value,
+                  child: TextButton(
+                    onPressed: () {
+                      _startRespondCodeTime();
+                    },
+                    child: const Text("Resend Code"),
+                  ),
+                ),
+              ),
               const Spacer(),
             ],
           ),
