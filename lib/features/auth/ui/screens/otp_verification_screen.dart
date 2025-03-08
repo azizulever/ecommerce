@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:projects/app/app_colors.dart';
 import 'package:projects/features/auth/ui/widgets/app_logo_widget.dart';
@@ -15,6 +18,19 @@ class OtpVerificationScreen extends StatefulWidget {
 class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
   final TextEditingController _otpTEController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final RxInt _remainingTime = 120.obs;
+
+  @override
+  void initState() {
+    super.initState();
+    _startRespondCodeTime();
+  }
+
+  void _startRespondCodeTime() {
+    Timer.periodic(const Duration(seconds: 1), (t) {
+      _remainingTime.value = t.tick;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
