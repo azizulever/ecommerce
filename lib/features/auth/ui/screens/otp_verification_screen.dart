@@ -57,7 +57,7 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
                 style: Theme.of(context).textTheme.titleLarge,
               ),
               Text(
-                'A 4 digit otp has been sent to your email',
+                'A 6 digit otp has been sent to your email',
                 style: Theme.of(
                   context,
                 ).textTheme.bodyLarge?.copyWith(color: Colors.grey),
