@@ -87,7 +87,6 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
                 child: Text('Next'),
               ),
               const SizedBox(height: 12),
-              // TODO: enable button when 120s is done and invisible the text
               Obx(
                 () => Visibility(
                   visible: !_enableResendCodeButton.value,
