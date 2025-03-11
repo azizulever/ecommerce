@@ -27,34 +27,36 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(24),
-        child: Column(
-          children: [
-            const Spacer(),
-            const AppLogoWidget(width: 100, height: 100),
-            const SizedBox(height: 12),
-            Text(
-              'Complete Profile',
-              style: Theme.of(context).textTheme.titleLarge,
-            ),
-            Text(
-              'Get started with us with your details',
-              style: Theme.of(
-                context,
-              ).textTheme.bodyLarge?.copyWith(color: Colors.grey),
-            ),
-            const SizedBox(height: 16),
-            _buildForm(),
-            ElevatedButton(
-              key: ValueKey("completeButton"),
-              onPressed: () {
-                if (_formKey.currentState!.validate()) {}
-              },
-              child: Text('Complete'),
-            ),
-            const Spacer(),
-          ],
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(24),
+          child: Column(
+            children: [
+              const SizedBox(height: 24),
+              const AppLogoWidget(width: 100, height: 100),
+              const SizedBox(height: 12),
+              Text(
+                'Complete Profile',
+                style: Theme.of(context).textTheme.titleLarge,
+              ),
+              Text(
+                'Get started with us with your details',
+                style: Theme.of(
+                  context,
+                ).textTheme.bodyLarge?.copyWith(color: Colors.grey),
+              ),
+              const SizedBox(height: 16),
+              _buildForm(),
+              ElevatedButton(
+                key: ValueKey("completeButton"),
+                onPressed: () {
+                  if (_formKey.currentState!.validate()) {}
+                },
+                child: Text('Complete'),
+              ),
+              const SizedBox(height: 16),
+            ],
+          ),
         ),
       ),
     );
