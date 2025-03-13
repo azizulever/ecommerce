@@ -42,10 +42,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               color: Colors.amber,
                               borderRadius: BorderRadius.circular(8),
                             ),
-
                             child: Text(
                               'text $i',
-                              style: TextStyle(fontSize: 16.0),
+                              style: TextStyle(fontSize: 16.0), textAlign: TextAlign.center,
                             ),
                           );
                         },
