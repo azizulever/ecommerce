@@ -7,7 +7,6 @@ import 'package:projects/features/auth/ui/screens/email_verification_screen.dart
 import 'package:projects/features/auth/ui/screens/otp_verification_screen.dart';
 import 'package:projects/features/auth/ui/screens/splash_screen.dart';
 import 'package:projects/features/common/ui/screens/main_bottom_nav_screen.dart';
-import 'package:projects/features/home/ui/screens/home_screen.dart';
 
 class CraftyBay extends StatelessWidget {
   const CraftyBay({super.key});

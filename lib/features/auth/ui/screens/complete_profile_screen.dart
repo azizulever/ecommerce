@@ -1,9 +1,4 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:pin_code_fields/pin_code_fields.dart';
-import 'package:projects/app/app_colors.dart';
-import 'package:projects/app/app_constants.dart';
 import 'package:projects/features/auth/ui/widgets/app_logo_widget.dart';
 
 class CompleteProfileScreen extends StatefulWidget {

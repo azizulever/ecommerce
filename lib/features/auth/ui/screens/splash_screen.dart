@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:projects/features/auth/ui/screens/email_verification_screen.dart';
 import 'package:projects/features/auth/ui/widgets/app_logo_widget.dart';
 import 'package:projects/features/common/ui/screens/main_bottom_nav_screen.dart';
-import 'package:projects/features/home/ui/screens/home_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

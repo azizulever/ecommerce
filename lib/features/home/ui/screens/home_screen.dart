@@ -30,6 +30,17 @@ class _HomeScreenState extends State<HomeScreen> {
               ProductSearchBar(controller: _searchBarController),
               const SizedBox(height: 16),
               HomeCarouselSlider(),
+              const SizedBox(height: 16),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    'Category',
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w900),
+                  ),
+                  TextButton(onPressed: () {}, child: Text('View all')),
+                ],
+              ),
             ],
           ),
         ),
