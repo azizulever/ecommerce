@@ -26,11 +26,11 @@ class _HomeScreenState extends State<HomeScreen> {
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Column(
             children: [
-              const SizedBox(height: 16),
+              SizedBox(height: 16),
               ProductSearchBar(controller: _searchBarController),
-              const SizedBox(height: 16),
+              SizedBox(height: 16),
               HomeCarouselSlider(),
-              const SizedBox(height: 16),
+              SizedBox(height: 16),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
