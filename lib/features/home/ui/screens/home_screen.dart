@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:projects/app/assets_path.dart';
 import 'package:projects/features/home/ui/widgets/app_bar_icon_button.dart';
+import 'package:projects/features/home/ui/widgets/category_item_widget.dart';
 import 'package:projects/features/home/ui/widgets/home_carousel_slider.dart';
+import 'package:projects/features/home/ui/widgets/home_section_header.dart';
 import 'package:projects/features/home/ui/widgets/product_search_bar.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -30,22 +32,34 @@ class _HomeScreenState extends State<HomeScreen> {
               ProductSearchBar(controller: _searchBarController),
               SizedBox(height: 16),
               HomeCarouselSlider(),
-              SizedBox(height: 16),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Text(
-                    'Category',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w900),
-                  ),
-                  TextButton(onPressed: () {}, child: Text('View all')),
-                ],
+              const SizedBox(height: 16),
+              HomeSectionHeader(title: 'All Categories', onTap: () {}),
+              const SizedBox(height: 4),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(children: _getCategoryList()),
               ),
+              const SizedBox(height: 16),
+              HomeSectionHeader(title: 'Popular', onTap: () {}),
+              const SizedBox(height: 4),
             ],
           ),
         ),
       ),
     );
+  }
+
+  List<Widget> _getCategoryList() {
+    List<Widget> categoryList = [];
+    for (int i = 0; i < 10; i++) {
+      categoryList.add(
+        Padding(
+          padding: const EdgeInsets.only(right: 16),
+          child: CategoryItemWidget(),
+        ),
+      );
+    }
+    return categoryList;
   }
 
   AppBar _buildAppBar() {
