@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:projects/app/app_colors.dart';
 import 'package:projects/app/assets_path.dart';
 import 'package:projects/features/home/ui/widgets/app_bar_icon_button.dart';
 import 'package:projects/features/home/ui/widgets/category_item_widget.dart';
@@ -42,6 +43,44 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(height: 16),
               HomeSectionHeader(title: 'Popular', onTap: () {}),
               const SizedBox(height: 4),
+              SizedBox(
+                width: 120,
+                child: Card(
+                  color: Colors.white,
+                  child: Column(
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.all(16),
+                        decoration: BoxDecoration(
+                          color: AppColors.themeColor.withOpacity(0.14),
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(12),
+                            topRight: Radius.circular(12),
+                          ),
+                        ),
+                        child: Image.asset(
+                          'assets/images/shoe.png',
+                          width: 120,
+                        ),
+                      ),
+                      Column(
+                        children: [
+                          Text(
+                            'Apex latest edition - RSH823',
+                            maxLines: 1,
+                            style: TextStyle(
+                              overflow: TextOverflow.ellipsis,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.black54,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(height: 8),
             ],
           ),
         ),
