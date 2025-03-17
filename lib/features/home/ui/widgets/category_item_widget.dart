@@ -11,7 +11,7 @@ class CategoryItemWidget extends StatelessWidget {
         Container(
           padding: EdgeInsets.all(16),
           decoration: BoxDecoration(
-            color: AppColors.themeColor.withOpacity(0.14),
+            color: AppColors.themeColor.withOpacity(0.12),
             borderRadius: BorderRadius.circular(8),
           ),
           child: Icon(Icons.computer, color: AppColors.themeColor, size: 40),

@@ -32,7 +32,7 @@ class _HomeCarouselSliderState extends State<HomeCarouselSlider> {
                       width: MediaQuery.of(context).size.width,
                       margin: EdgeInsets.symmetric(horizontal: 2),
                       decoration: BoxDecoration(
-                        color: Colors.grey.shade300,
+                        color: AppColors.themeColor.withOpacity(0.12),
                         borderRadius: BorderRadius.circular(8),
                       ),
                       alignment: Alignment.center,
