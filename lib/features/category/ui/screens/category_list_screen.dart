@@ -10,27 +10,33 @@ class CategoryListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Category list'),
-        leading: IconButton(
-          onPressed: () {
-            Get.find<MainBottomNavController>().backToHome();
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (_, __) => _onPop(),
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('Category list'),
+          leading: IconButton(
+            onPressed: () => _onPop(),
+            icon: Icon(Icons.arrow_back_ios_new),
+          ),
+        ),
+        body: GridView.builder(
+          itemCount: 20,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 4,
+            crossAxisSpacing: 4,
+            mainAxisSpacing: 16,
+          ),
+          itemBuilder: (context, index) {
+            return FittedBox(child: const CategoryItemWidget());
           },
-          icon: Icon(Icons.arrow_back_ios_new),
         ),
-      ),
-      body: GridView.builder(
-        itemCount: 20,
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 4,
-          crossAxisSpacing: 4,
-          mainAxisSpacing: 16,
-        ),
-        itemBuilder: (context, index) {
-          return FittedBox(child: const CategoryItemWidget());
-        },
       ),
     );
   }
+}
+
+void _onPop() {
+  Get.find<MainBottomNavController>().backToHome();
 }
