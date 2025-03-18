@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:projects/app/assets_path.dart';
+import 'package:projects/features/common/ui/controllers/main_bottom_nav_controller.dart';
 import 'package:projects/features/common/ui/widgets/category_item_widget.dart';
 import 'package:projects/features/home/ui/widgets/app_bar_icon_button.dart';
 import 'package:projects/features/home/ui/widgets/home_carousel_slider.dart';
@@ -34,7 +36,12 @@ class _HomeScreenState extends State<HomeScreen> {
               SizedBox(height: 16),
               HomeCarouselSlider(),
               const SizedBox(height: 16),
-              HomeSectionHeader(title: 'All Categories', onTap: () {}),
+              HomeSectionHeader(
+                title: 'All Categories',
+                onTap: () {
+                  Get.find<MainBottomNavController>().moveToCategory();
+                },
+              ),
               const SizedBox(height: 4),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,

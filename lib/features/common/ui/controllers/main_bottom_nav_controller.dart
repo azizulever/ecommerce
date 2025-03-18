@@ -5,10 +5,18 @@ class MainBottomNavController extends GetxController {
   int get selectedIndex => _selectedIndex;
 
   void changeIndex(int index) {
-    if(index == _selectedIndex) {
+    if (index == _selectedIndex) {
       return;
     }
     _selectedIndex = index;
     update();
+  }
+
+  void backToHome() {
+    changeIndex(0);
+  }
+
+  void moveToCategory() {
+    changeIndex(1);
   }
 }
