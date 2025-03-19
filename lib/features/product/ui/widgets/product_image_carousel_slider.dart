@@ -16,11 +16,11 @@ class _ProductImageCarouselSliderState
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Stack(
       children: [
         CarouselSlider(
           options: CarouselOptions(
-            height: 200,
+            height: 220,
             viewportFraction: 0.95,
             onPageChanged: (currentIndex, reason) {
               _selectedIndex.value = currentIndex;
@@ -32,10 +32,8 @@ class _ProductImageCarouselSliderState
                   builder: (BuildContext context) {
                     return Container(
                       width: MediaQuery.of(context).size.width,
-                      margin: EdgeInsets.symmetric(horizontal: 2),
                       decoration: BoxDecoration(
                         color: AppColors.themeColor.withOpacity(0.12),
-                        borderRadius: BorderRadius.circular(8),
                       ),
                       alignment: Alignment.center,
                       child: Text(
@@ -47,30 +45,34 @@ class _ProductImageCarouselSliderState
                 );
               }).toList(),
         ),
-        const SizedBox(height: 8),
-        ValueListenableBuilder(
-          valueListenable: _selectedIndex,
-          builder: (context, value, _) {
-            return Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                for (int i = 0; i < 5; i++)
-                  Container(
-                    width: 15,
-                    height: 15,
-                    margin: EdgeInsets.symmetric(horizontal: 2),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color:
-                          value == i
-                              ? AppColors.themeColor
-                              : Colors.transparent,
-                      border: Border.all(color: Colors.grey.shade300),
+        Positioned(
+          bottom: 8,
+          left: 0,
+          right: 0,
+          child: ValueListenableBuilder(
+            valueListenable: _selectedIndex,
+            builder: (context, value, _) {
+              return Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  for (int i = 0; i < 5; i++)
+                    Container(
+                      width: 15,
+                      height: 15,
+                      margin: EdgeInsets.symmetric(horizontal: 2),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color:
+                            value == i
+                                ? AppColors.themeColor
+                                : Colors.transparent,
+                        border: Border.all(color: Colors.grey.shade300),
+                      ),
                     ),
-                  ),
-              ],
-            );
-          },
+                ],
+              );
+            },
+          ),
         ),
       ],
     );
