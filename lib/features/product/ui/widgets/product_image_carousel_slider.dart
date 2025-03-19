@@ -2,14 +2,16 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:projects/app/app_colors.dart';
 
-class HomeCarouselSlider extends StatefulWidget {
-  const HomeCarouselSlider({super.key});
+class ProductImageCarouselSlider extends StatefulWidget {
+  const ProductImageCarouselSlider({super.key});
 
   @override
-  State<HomeCarouselSlider> createState() => _HomeCarouselSliderState();
+  State<ProductImageCarouselSlider> createState() =>
+      _ProductImageCarouselSliderState();
 }
 
-class _HomeCarouselSliderState extends State<HomeCarouselSlider> {
+class _ProductImageCarouselSliderState
+    extends State<ProductImageCarouselSlider> {
   final ValueNotifier<int> _selectedIndex = ValueNotifier(0);
 
   @override
@@ -37,7 +39,7 @@ class _HomeCarouselSliderState extends State<HomeCarouselSlider> {
                       ),
                       alignment: Alignment.center,
                       child: Text(
-                        'Home Carousel Photo $i',
+                        'Product Carousel Photo $i',
                         style: TextStyle(fontSize: 16.0),
                       ),
                     );
