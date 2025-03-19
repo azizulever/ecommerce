@@ -36,7 +36,10 @@ class _HomeCarouselSliderState extends State<HomeCarouselSlider> {
                         borderRadius: BorderRadius.circular(8),
                       ),
                       alignment: Alignment.center,
-                      child: Text('Photo $i', style: TextStyle(fontSize: 16.0)),
+                      child: Text(
+                        'Carousel Photo $i',
+                        style: TextStyle(fontSize: 16.0),
+                      ),
                     );
                   },
                 );
