@@ -20,10 +20,13 @@ class _ProductListScreenState extends State<ProductListScreen> {
       body: GridView.builder(
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 3,
+          childAspectRatio: 0.7,
+          crossAxisSpacing: 2,
+          mainAxisSpacing: 2,
         ),
         itemCount: 20,
         itemBuilder: (context, index) {
-          return ProductItemWidget();
+          return FittedBox(child: ProductItemWidget());
         },
       ),
     );

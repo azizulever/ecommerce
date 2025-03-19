@@ -27,7 +27,7 @@ class CategoryItemWidget extends StatelessWidget {
           ),
           const SizedBox(height: 4),
           Text(
-            'Electronics',
+            'Computer',
             style: TextStyle(
               fontSize: 16,
               color: AppColors.themeColor,
