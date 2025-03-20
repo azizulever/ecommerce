@@ -84,7 +84,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                           ProductQuantityIncDecButton(onChange: (int value) {}),
                         ],
                       ),
-                      Text(data),
+                      Text(''),
                     ],
                   ),
                 ),
@@ -108,7 +108,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
             children: [
               Text('Price', style: textTheme.titleSmall),
               Text(
-                '\$100',
+                '\$1,000',
                 style: TextStyle(
                   color: AppColors.themeColor,
                   fontWeight: FontWeight.w500,
