@@ -62,6 +62,7 @@ class ProductItemWidget extends StatelessWidget {
                         Row(
                           children: [
                             Icon(Icons.star, color: Colors.amber, size: 18),
+                            const SizedBox(width: 2),
                             Text(
                               '4.5',
                               style: TextStyle(

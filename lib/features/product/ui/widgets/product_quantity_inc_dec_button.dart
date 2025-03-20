@@ -57,7 +57,7 @@ class _ProductQuantityIncDecButtonState
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding: EdgeInsets.all(4),
+        padding: EdgeInsets.all(2),
         decoration: BoxDecoration(
           color: AppColors.themeColor,
           borderRadius: BorderRadius.circular(4),
