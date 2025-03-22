@@ -136,10 +136,11 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text('Price', style: textTheme.titleSmall),
               Text(
-                '\$1,000',
+                '\$100',
                 style: TextStyle(
                   color: AppColors.themeColor,
                   fontWeight: FontWeight.w500,
