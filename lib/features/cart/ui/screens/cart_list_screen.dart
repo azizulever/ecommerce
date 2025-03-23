@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:projects/app/app_colors.dart';
+import 'package:projects/features/cart/ui/widgets/cart_product_item_widget.dart';
 import 'package:projects/features/common/ui/controllers/main_bottom_nav_controller.dart';
 
 class CartListScreen extends StatefulWidget {
@@ -14,7 +15,6 @@ class _CartListScreenState extends State<CartListScreen> {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-
     return PopScope(
       canPop: false,
       onPopInvokedWithResult: (_, __) {
@@ -34,7 +34,7 @@ class _CartListScreenState extends State<CartListScreen> {
               child: ListView.builder(
                 itemCount: 5,
                 itemBuilder: (context, index) {
-                  return ListTile();
+                  return CartProductItemWidget();
                 },
               ),
             ),

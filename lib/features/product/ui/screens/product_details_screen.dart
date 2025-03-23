@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:projects/app/app_colors.dart';
+import 'package:projects/features/common/ui/widgets/product_quantity_inc_dec_button.dart';
 import 'package:projects/features/product/ui/widgets/color_picker_widget.dart';
 import 'package:projects/features/product/ui/widgets/product_image_carousel_slider.dart';
-import 'package:projects/features/product/ui/widgets/product_quantity_inc_dec_button.dart';
 import 'package:projects/features/product/ui/widgets/size_picker_widget.dart';
 
 class ProductDetailsScreen extends StatefulWidget {
