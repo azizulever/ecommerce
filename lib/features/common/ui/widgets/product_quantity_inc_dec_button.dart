@@ -21,6 +21,7 @@ class _ProductQuantityIncDecButtonState
       children: [
         _buildIconButton(
           icon: Icons.remove,
+          backgroundColor: Color(0xFF06CBCD),
           onTap: () {
             if (_count > 1) {
               _count--;
@@ -38,6 +39,7 @@ class _ProductQuantityIncDecButtonState
         ),
         _buildIconButton(
           icon: Icons.add,
+          backgroundColor: AppColors.themeColor,
           onTap: () {
             if (_count < 20) {
               _count++;
@@ -52,6 +54,7 @@ class _ProductQuantityIncDecButtonState
 
   Widget _buildIconButton({
     required IconData icon,
+    required Color backgroundColor,
     required VoidCallback onTap,
   }) {
     return GestureDetector(
@@ -59,7 +62,7 @@ class _ProductQuantityIncDecButtonState
       child: Container(
         padding: EdgeInsets.all(2),
         decoration: BoxDecoration(
-          color: AppColors.themeColor,
+          color: backgroundColor,
           borderRadius: BorderRadius.circular(4),
         ),
         alignment: Alignment.center,
