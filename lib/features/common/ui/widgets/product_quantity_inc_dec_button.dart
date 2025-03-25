@@ -21,7 +21,7 @@ class _ProductQuantityIncDecButtonState
       children: [
         _buildIconButton(
           icon: Icons.remove,
-          backgroundColor: Color(0xFF06CBCD),
+          backgroundColor: Color(0xFF01D1D6),
           onTap: () {
             if (_count > 1) {
               _count--;

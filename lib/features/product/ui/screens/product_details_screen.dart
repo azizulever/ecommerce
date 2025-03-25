@@ -95,7 +95,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                         Text('Color', style: textTheme.titleMedium),
                         const SizedBox(height: 8),
                         ColorPickerWidget(
-                          colors: ['Red', 'Green', 'Yellow', 'Black'],
+                          colors: ['Red', 'Blue', 'Yellow', 'Black'],
                           onColorSelected: (String selectedColor) {},
                         ),
                         const SizedBox(height: 16),
