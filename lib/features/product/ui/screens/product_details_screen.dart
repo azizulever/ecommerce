@@ -131,7 +131,9 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
   Widget _buildPriceAndAddToCartSelection(TextTheme textTheme) {
     return Container(
       padding: EdgeInsets.all(16),
-      decoration: BoxDecoration(color: AppColors.themeColor.withOpacity(0.12)),
+      decoration: BoxDecoration(
+        color: AppColors.themeColor.withAlpha((0.12 * 255).toInt()),
+      ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
