@@ -5,6 +5,8 @@ import 'package:projects/services/network_caller/network_caller.dart';
 class EmailVerificationController extends GetxController {
   bool _inProgress = false;
   bool get inProgress => _inProgress;
+  String? _errorMessage;
+  String? get errorMessage => _errorMessage;
 
   Future<bool> verifyEmail(String email) async {
     bool isSuccess = false;
@@ -14,8 +16,13 @@ class EmailVerificationController extends GetxController {
         .postRequest(Urls.verifyEmailUrl(email));
 
     if (response.isSuccess) {
+      _errorMessage = null;
       isSuccess = true;
-    } else {}
+    } else {
+      _errorMessage = response.errorMessage;
+    }
+    _inProgress = false;
+    update();
     return isSuccess;
   }
 }
