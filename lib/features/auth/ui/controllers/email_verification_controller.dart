@@ -8,12 +8,14 @@ class EmailVerificationController extends GetxController {
   String? _errorMessage;
   String? get errorMessage => _errorMessage;
 
-  Future<bool> verifyEmail(String email) async {
+  Future<bool> verifyEmail(String email, String password) async {
     bool isSuccess = false;
     _inProgress = true;
     update();
+
+    final requestParems = {"email": email, "password": password};
     final NetworkResponse response = await Get.find<NetworkCaller>()
-        .postRequest(Urls.verifyEmailUrl(email));
+        .postRequest(Urls.verifyEmailUrl, body: requestParems);
 
     if (response.isSuccess) {
       _errorMessage = null;

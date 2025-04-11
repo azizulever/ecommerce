@@ -19,6 +19,7 @@ class EmailVerificationScreen extends StatefulWidget {
 
 class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
   final TextEditingController _emailTEController = TextEditingController();
+  final TextEditingController _passwordTEController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final EmailVerificationController _emailVerificationController =
       Get.find<EmailVerificationController>();
@@ -61,6 +62,21 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                   return null;
                 },
               ),
+              const SizedBox(height: 8),
+              TextFormField(
+                obscureText: true,
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                controller: _passwordTEController,
+                decoration: InputDecoration(hintText: 'Password'),
+                keyboardType: TextInputType.text,
+                validator: (String? value) {
+                  if (value?.isEmpty ?? true) {
+                    return "Enter Password";
+                  }
+                  return null;
+                },
+              ),
+
               const SizedBox(height: 12),
               GetBuilder<EmailVerificationController>(
                 builder: (controller) {
@@ -86,6 +102,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
     if (_formKey.currentState!.validate()) {
       bool isSuccess = await _emailVerificationController.verifyEmail(
         _emailTEController.text.trim(),
+        _passwordTEController.text,
       );
       if (isSuccess) {
         if (mounted) {
