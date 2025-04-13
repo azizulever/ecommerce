@@ -71,7 +71,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                 keyboardType: TextInputType.text,
                 validator: (String? value) {
                   if (value?.isEmpty ?? true) {
-                    return "Enter Password";
+                    return "Enter your password";
                   }
                   return null;
                 },
