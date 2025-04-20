@@ -106,7 +106,11 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
       );
       if (isSuccess) {
         if (mounted) {
-          Navigator.pushNamed(context, OtpVerificationScreen.name);
+          Navigator.pushNamed(
+            context,
+            OtpVerificationScreen.name,
+            arguments: _emailTEController.text.trim(),
+          );
         }
       } else {
         if (mounted) {
